@@ -1,0 +1,708 @@
+/* --- TRADITIONAL TAMIL PALETTE & VARIABLES --- */
+:root {
+    --saffron: #FF9933;
+    --maroon: #800000;
+    --gold: #FFD700;
+    --warm-brown: #8B4513;
+    --cream: #FFFDD0;
+    --glass-bg: rgba(255, 255, 255, 0.15);
+    --glass-border: rgba(255, 255, 255, 0.4);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    --text-main: #2c1e12;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Georgia', serif; /* Traditional serif feel */
+}
+
+body {
+    /* Background: A warm gradient mimicking a temple sunset */
+    background: linear-gradient(135deg, var(--maroon), var(--warm-brown), var(--saffron));
+    background-attachment: fixed; /* Parallax feel */
+    min-height: 100vh;
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+/* --- GLASSMORPHISM UTILITIES --- */
+.glass-panel {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Traditional Decorative Top Border for Cards */
+.glass-panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--maroon), var(--gold), var(--maroon));
+}
+
+/* --- NAVIGATION --- */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(128, 0, 0, 0.85); /* Dark Maroon Glass */
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid var(--gold);
+    padding: 1rem 0;
+}
+
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    flex-wrap: wrap;
+}
+
+.brand {
+    color: var(--gold);
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 2px black;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    background: var(--saffron);
+    color: var(--maroon);
+}
+
+/* --- LAYOUTS --- */
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 20px;
+}
+
+.hero {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: rgb(255, 255, 255); /* Contrast against dark glass */
+}
+
+.hero h1 {
+    font-size: 3rem;
+    color: white;
+    text-shadow: 2px 2px 4px black;
+    margin-bottom: 1rem;
+    background: none;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+}
+
+/* --- COMPONENTS --- */
+h2 {
+    color: var(--maroon);
+    border-bottom: 2px solid var(--saffron);
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, var(--maroon), #a52a2a);
+    color: var(--gold);
+    border: 1px solid var(--gold);
+}
+
+.btn-whatsapp {
+    background: linear-gradient(45deg, #0b953e, #0cb50c);
+    color: white;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Gallery Masonry */
+.gallery-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.gallery-item {
+    flex: 1 1 300px;
+    height: 250px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 2px solid var(--gold);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Forms */
+input, textarea, select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid white;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--maroon);
+    background: rgba(255, 255, 255, 0.8);
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(0,0,0,0.5);
+    color: var(--gold);
+    margin-top: 3rem;
+    border-top: 3px solid var(--saffron);
+}
+
+/* Responsive Tweaks */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        margin-top: 1rem;
+    }
+    .hero h1 { font-size: 2rem; }
+}
+h1{
+    background: var(--maroon); color: white; padding: 5px 10px; border-radius: 5px;
+    text-align: center;
+}
+h2{
+    background: var(--maroon); color: white; padding: 5px 10px; border-radius: 5px;
+}
+h3{
+    background: var(--maroon); color: white; padding: 5px 10px; border-radius: 5px;
+}
+p{
+    color: var(--gold);
+    font-weight: bold;
+    text-shadow: 1px 1px 2px black;
+}
+
+/* --- Mobile Navigation Styles --- */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: white; /* Change this if your header is light */
+    cursor: pointer;
+    z-index: 1001; /* Ensure it sits above other elements */
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 10px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+        margin-top: 15px;
+        background: rgba(0, 0, 0, 0.9); /* Add background for readability */
+        padding: 10px;
+        border-radius: 8px;
+    }
+
+    /* This class is added via JavaScript */
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 10px 0;
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+}
+
+
+.star-rating-box {
+            margin-bottom: 15px;
+        }
+
+        .star-rating {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+        .star-rating input {
+            display: none;
+            /* Hide the actual radio buttons */
+        }
+
+        .star-rating label {
+            cursor: pointer;
+            font-size: 2rem;
+            color: #ddd;
+            /* Gray by default */
+            transition: color 0.2s;
+        }
+
+        /* Color the stars gold when checked or hovered */
+        .star-rating input:checked~label,
+        .star-rating label:hover,
+        .star-rating label:hover~label {
+            color: #ffc107;
+        }
+
+        .rating-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: #ccc;
+            margin-top: 5px;
+            max-width: 200px;
+        }
+
+        /* Hide the default ugly file input */
+        input[type="file"] {
+            display: none;
+        }
+
+        /* Style the custom label to look like a button */
+        .custom-file-upload {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 15px;
+            cursor: pointer;
+            border: 1px dashed rgba(255, 255, 255, 0.5);
+            /* Dashed glass border */
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            color: white;
+            text-align: center;
+            transition: all 0.3s ease;
+            font-family: Arial, sans-serif;
+            box-sizing: border-box;
+            margin-top: 5px;
+        }
+
+        /* Hover effect */
+        .custom-file-upload:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: #ffc107;
+            /* Gold highlight on hover */
+            color: #fff;
+        }
+
+        /* Text that shows which file is selected */
+        #file-name-display {
+            font-size: 0.85rem;
+            color: #ccc;
+            margin-top: 8px;
+            margin-bottom: 15px;
+            font-style: italic;
+            text-align: center;
+            display: block;
+        }
+
+
+        /* 1. GLOBAL RESET - Prevents padding from breaking widths */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4; /* Fallback color */
+}
+
+/* 2. CONTAINER & LAYOUT */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    width: 100%;
+}
+
+/* This is the MAIN FIX for the "Side Alignment" issue */
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns on desktop */
+    gap: 30px;
+    align-items: start; /* Prevents stretching if one side is longer */
+}
+
+.glass-panel {
+    background: rgba(255, 255, 255, 0.2); /* Example glass effect */
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    color: black; /* Ensure text is readable */
+}
+
+/* 3. FORM INPUTS - Fixes "Position Mismatching" */
+input, select, textarea {
+    width: 100%; /* Forces inputs to stay within the container */
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px; /* Prevents zoom on mobile */
+    background: rgba(255,255,255,0.9);
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* 4. STAR RATING ALIGNMENT */
+.star-rating-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Aligns stars to the left */
+    margin-bottom: 15px;
+}
+
+.star-rating {
+    display: flex;
+    flex-direction: row-reverse; /* Standard CSS star rating trick */
+    font-size: 2rem;
+    justify-content: flex-end;
+}
+
+.star-rating input {
+    display: none; /* Hide radio buttons */
+}
+
+.star-rating label {
+    color: #ccc;
+    cursor: pointer;
+    margin: 0 2px;
+}
+
+.star-rating input:checked ~ label,
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+    color: #ffc107; /* Gold color */
+}
+
+.rating-labels {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 0.8rem;
+    color: #ccc;
+}
+
+/* 5. NAVIGATION (Desktop Default) */
+nav {
+    background: none;
+    padding: 15px 20px;
+    color: white;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.menu-toggle {
+    display: none; /* Hidden on desktop */
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* =========================================
+   6. MOBILE RESPONSIVENESS (Media Queries)
+   ========================================= */
+@media (max-width: 768px) {
+    
+    /* FIX: Stack the columns vertically */
+    .grid-2 {
+        grid-template-columns: 1fr; 
+    }
+
+    /* FIX: Adjust padding for smaller screens */
+    .glass-panel {
+        padding: 20px; 
+    }
+
+    /* FIX: Navigation for Mobile */
+    .menu-toggle {
+        display: block; /* Show hamburger button */
+    }
+
+    .nav-links {
+        display: none; /* Hide links by default on mobile */
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px; /* Adjust based on header height */
+        left: 0;
+        z-index: 1000;
+        text-align: center;
+    }
+
+    /* JavaScript will toggle this class to show menu */
+    .nav-links.active {
+        display: flex; 
+    }
+
+    .nav-links a {
+        padding: 15px;
+        margin: 0;
+        border-bottom: 1px solid #444;
+        display: block;
+    }
+}
+
+
+
+/* Show toggle button and hide links for both Mobile and Tablets */
+@media (max-width: 1024px) {
+    .menu-toggle {
+        display: block; /* Show the ☰ button */
+        cursor: pointer;
+    }
+
+    .nav-links {
+        display: none; /* Hide the horizontal menu */
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 70px; /* Adjust based on your header height */
+        left: 0;
+        background: rgba(0, 5, 30, 0.95); /* Matches your site theme */
+        text-align: center;
+        padding: 20px 0;
+    }
+
+    /* When the 'active' class is added via JavaScript */
+    .nav-links.active {
+        display: flex;
+    }
+}
+
+/* Ensure links are visible on Desktop */
+@media (min-width: 1025px) {
+    .menu-toggle {
+        display: none;
+    }
+    .nav-links {
+        display: flex;
+    }
+}
+
+/* Paste your full styles.css content here */
+:root {
+    --saffron: #FF9933;
+    --maroon: #800000;
+    --gold: #FFD700;
+    --warm-brown: #8B4513;
+    --glass-bg: rgba(255, 255, 255, 0.15);
+    /* ... keep all other variables and rules ... */
+}
+/* Ensure the specific header/font overrides you provided are kept exactly */
+h1, h2, h3 {
+    background: var(--maroon); 
+    color: white; 
+    padding: 5px 10px; 
+    border-radius: 5px;
+}
+p {
+    color: var(--gold);
+    font-weight: bold;
+    text-shadow: 1px 1px 2px black;
+}
+
+
+/* 100% MATCHING BACKGROUND GRADIENT */
+body {
+    background: linear-gradient(to right, #990000 0%, #ff8c00 100%) !important;
+    background-attachment: fixed;
+    margin: 0;
+}
+
+/* HEADER NAVIGATION - ACTIVE LINK BOX */
+.nav-links a.active {
+    background-color: #ff9933 !important; /* Exact orange box from screenshot */
+    color: black !important;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+/* SLIDER BUTTON VISIBILITY FIX */
+.prev-btn, .next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 100;
+    font-size: 20px;
+    display: flex !important; /* Forces showing */
+    align-items: center;
+    justify-content: center;
+}
+
+.prev-btn { left: 15px; }
+.next-btn { right: 15px; }
+
+/* IMAGE FRAME CONSISTENCY */
+.slider-wrapper {
+    aspect-ratio: 16 / 10;
+    background: #000;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures all images fit the same frame */
+}
+
+
+/* LIGHTBOX MODAL - FULLSCREEN OVERLAY */
+.fullscreen-modal {
+    position: fixed; /* Fixed to the screen, not the page content */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9); /* Dark semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Higher than everything else */
+    cursor: zoom-out;
+    padding: 20px;
+}
+
+/* THE IMAGE INSIDE THE MODAL */
+.fullscreen-content {
+    max-width: 90%;
+    max-height: 85vh;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    animation: zoomIn 0.3s ease;
+}
+
+/* THE CLOSE BUTTON (Top Right X) */
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-btn:hover {
+    color: #ff9933; /* Gold/Orange on hover */
+}
+
+/* ANIMATION */
+@keyframes zoomIn {
+    from { transform: scale(0.7); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* PREVENT SCROLLING WHEN MODAL IS OPEN */
+body:has(.fullscreen-modal) {
+    overflow: hidden;
+}
+
+
