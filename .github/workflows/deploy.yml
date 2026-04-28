@@ -1,0 +1,28 @@
+name: Build and Deploy to Hostinger
+
+on:
+  push:
+    branches:
+      - main  # This triggers the deploy whenever you push to the main branch
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build Project
+        run: npm run build
+
+      - name: Sync Files to Hostinger
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./dist/  # Vite builds into the dist folder
+          server-dir: ./public_html/ # The folder on Hostinger
