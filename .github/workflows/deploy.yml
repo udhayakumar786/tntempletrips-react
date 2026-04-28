@@ -3,7 +3,8 @@ name: Build and Deploy to Hostinger
 on:
   push:
     branches:
-      - main  # This triggers the deploy whenever you push to the main branch
+      - main
+  workflow_dispatch: # This adds the manual "Run workflow" button
 
 jobs:
   build-and-deploy:
